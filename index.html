@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="word list" href="/js/common-words.js">
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+code for selecting word from
+    function chooseWord () {
+    return words[Math.floor(Math.random() * words.length)];
+}
+<!-- RETURN chooseWord() -->
+
+function blanksForAnswerWindow ( answerWord ) {
+
+	    var result = "";
+	    for (var i = 0; i < answerWord.length; i++) {
+	    result = result += "_ ";
+	  }
+	  return result;
+	}
+
+
+<!-- RETURN blanksForAnswerWindow -->
+<script src="./js/common-words.js"></script>
+<script src="./js/main.js"><script>
+
+  </body>
+</html>
