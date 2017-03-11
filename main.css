@@ -1,0 +1,17 @@
+html, body, * {
+  box-sizing: border-box;
+}
+
+html, body {
+  height:100%;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.alphabet-selector {
+  border: 1px solid black;
+  width: auto;
+  height: 250px;
+}
