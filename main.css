@@ -10,17 +10,40 @@ html, body {
   padding: 0;
 }
 
-.alphabet-selector {
+
+#alphabet {
+  width: 400px;
+  height: auto;
   border: 1px solid black;
-  width: auto;
-  height: 250px;
+  color: red;
+  font-size: 20px;
+  padding: 2%;
 }
 
-button {
-  height: 100px;
-  width: auto;
+.wrappper{
+  @include clear;
+  width:100%;
+  margin:0 auto;
 }
 
-body {
-  background-color: grey;
+
+button{
+  @include corners (5px);
+  background:$base-color;
+  color:$white;
+  border: solid 1px $white;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:1.2em;
+  padding:18px 10px;
+  width:180px;
+  margin: 10px;
+  outline: none;
+
+    &:hover{
+      @include transition;
+      background:$white;
+      border: solid 1px $white;
+      color:$base-color;
+    }
 }
