@@ -15,3 +15,12 @@ html, body {
   width: auto;
   height: 250px;
 }
+
+button {
+  height: 100px;
+  width: auto;
+}
+
+body {
+  background-color: grey;
+}
