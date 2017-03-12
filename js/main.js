@@ -12,14 +12,6 @@ var commonWords = [
   "come","made","may","part"
 ];
 
-
-// "Would you like to play?" button
-
-
-
-
-
-
 //code for selecting word from
 function chooseWord() {
   let thing =  commonWords[((Math.floor(Math.random()) * commonWords.length))];
