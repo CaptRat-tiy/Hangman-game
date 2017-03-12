@@ -14,7 +14,7 @@ var commonWords = [
 
 //code for selecting word from
 function chooseWord() {
-  let thing =  commonWords[((Math.floor(Math.random()) * commonWords.length))];
+  let thing =  commonWords[(Math.floor(Math.random() * commonWords.length))];
   return thing;
  }
 
