@@ -2,8 +2,6 @@ document.getElementById("Start").onclick = function() {chooseWord()};
 
 document.getElementById("pick-letter").onclick = function() {pickLetter()};
 
-
-
 var commonWords = [
   "the","of","and","a","to","in","is","you","that","it","he",
   "was","for","on","are","as","with","his","they","I","at","be",
@@ -23,7 +21,7 @@ let alphNode = document.querySelector("div#alphabet")
 alphNode.textContent = alphabet.join(" ")
 
 function pickLetter (){
-var letter = prompt("your choice of letter?");
+var letter = prompt("Your choice of letter?");
 console.log(letter);
 }
 
@@ -34,6 +32,7 @@ function chooseWord() {
  }
 
 var word = chooseWord()
+console.log(word)
 
 
 function drawUnderscores ( word ) {
