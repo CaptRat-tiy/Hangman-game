@@ -1,3 +1,5 @@
+document.getElementById("Start").onclick = function() {chooseWord()};
+
 var commonWords = [
   "the","of","and","a","to","in","is","you","that","it","he",
   "was","for","on","are","as","with","his","they","I","at","be",
@@ -16,29 +18,11 @@ var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p',
 
 let alphNode = document.querySelector("div#alphabet")
 alphNode.textContent = alphabet.join(" ")
-// "Would you like to play?" button
-
-// create alphabet ul
-  // var buttons = function () {
-  //   myButtons = document.getElementById('buttons');
-  //   letters = document.createElement('ul');
-  //
-  //   for (var i = 0; i < alphabet.length; i++) {
-  //     letters.id = 'alphabet';
-  //     list = document.createElement('li');
-  //     list.id = 'letter';
-  //     list.innerHTML = alphabet[i];
-  //     check();
-  //     myButtons.appendChild(letters);
-  //     letters.appendChild(list);
-  //   }
-
-
 
 
 //code for selecting word from
 function chooseWord() {
-  let thing =  commonWords[((Math.floor(Math.random()) * commonWords.length))];
+  let thing = commonWords[(Math.floor(Math.random() * commonWords.length))];
   return thing;
  }
 
@@ -56,7 +40,7 @@ function drawUnderscores ( word ) {
 //  RETURN blanksForAnswerWindow
 
 var underscores = drawUnderscores(word)
-console.log(underscores)
+
 
 function alterAt ( n, c, originalString ) {
   return originalString.substr(0,n) + c + originalString.substr(n+1);
@@ -67,4 +51,7 @@ function alterAt ( n, c, originalString ) {
 function show (letter, shown, checkLetter) {
   let s = shown.substr(0,checkLetter) + letter + shown.substr(checkLetter+1, shown.length)
   return s;
+  if show =
 }
+
+document.getElementById("demo").innerHTML = underscores;
