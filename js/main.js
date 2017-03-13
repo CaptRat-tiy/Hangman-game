@@ -14,6 +14,7 @@ var commonWords = [
   "come","made","may","part"
 ];
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
@@ -25,6 +26,12 @@ alphNode.textContent = alphabet.join(" ")
 function chooseWord() {
   let thing = commonWords[(Math.floor(Math.random() * commonWords.length))];
 =======
+=======
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+>>>>>>> Stashed changes
 //code for selecting word from
 function chooseWord() {
   let thing =  commonWords[(Math.floor(Math.random() * commonWords.length))];
@@ -47,6 +54,8 @@ function drawUnderscores ( word ) {
 
 var underscores = drawUnderscores(word)
 
+
+// get guessed letter from User
 
 function alterAt ( n, c, originalString ) {
   return originalString.substr(0,n) + c + originalString.substr(n+1);
