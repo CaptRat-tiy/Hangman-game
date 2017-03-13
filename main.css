@@ -4,12 +4,10 @@ html, body, * {
 
 a:link{
  color:gold;
-
 }
 
 a:visited{
  color:green;
-
 }
 
 a:hover{
@@ -33,7 +31,6 @@ html, body {
   /*padding: 10px;*/
 }
 
-
 .cf:before,
 .cf:after{
  content:" ";
@@ -43,7 +40,6 @@ html, body {
 .cf:after{
 clear:both;
 }
-
 
 #alphabet {
   width: 400px;

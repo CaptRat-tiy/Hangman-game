@@ -1,4 +1,4 @@
-document.getElementById("Start").onclick = function() {chooseWord()};
+// document.getElementById("Start").onclick = function() {chooseWord()};
 
 document.getElementById("pick-letter").onclick = function() {pickLetter()};
 
@@ -33,7 +33,6 @@ function chooseWord() {
 
 var word = chooseWord()
 console.log(word)
-
 
 function drawUnderscores ( word ) {
   var result = "";
