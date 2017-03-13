@@ -1,5 +1,28 @@
 html, body, * {
-  box-sizing: border-box;
+ box-sizing:border-box;
+}
+
+a:link{
+ color:gold;
+
+}
+
+a:visited{
+ color:green;
+
+}
+
+a:hover{
+ background-color: black;
+ color:white;
+}
+
+a:focus{
+ font-style:italic;
+}
+
+a:active{
+text-decoration: line-through;
 }
 
 html, body {
@@ -7,7 +30,18 @@ html, body {
   position: relative;
   min-height: 100%;
   margin: 0;
-  padding: 0;
+  /*padding: 10px;*/
+}
+
+
+.cf:before,
+.cf:after{
+ content:" ";
+ display:table;
+}
+
+.cf:after{
+clear:both;
 }
 
 
@@ -18,32 +52,13 @@ html, body {
   color: red;
   font-size: 20px;
   padding: 2%;
+  margin: auto;
 }
 
-.wrappper{
-  @include clear;
-  width:100%;
-  margin:0 auto;
-}
-
-
-button{
-  @include corners (5px);
-  background:$base-color;
-  color:$white;
-  border: solid 1px $white;
-  text-decoration:none;
-  cursor:pointer;
-  font-size:1.2em;
-  padding:18px 10px;
-  width:180px;
-  margin: 10px;
-  outline: none;
-
-    &:hover{
-      @include transition;
-      background:$white;
-      border: solid 1px $white;
-      color:$base-color;
-    }
+#demo {
+  border: 1px solid black;
+  width: 10%;
+  margin:2%;
+  float:center;
+  padding: 2%;
 }

@@ -51,7 +51,6 @@ function alterAt ( n, c, originalString ) {
 function show (letter, shown, checkLetter) {
   let s = shown.substr(0,checkLetter) + letter + shown.substr(checkLetter+1, shown.length)
   return s;
-  if show =
 }
 
 document.getElementById("demo").innerHTML = underscores;
