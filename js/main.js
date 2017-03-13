@@ -65,4 +65,4 @@ function show (letter, shown, checkLetter) {
   return s;
 }
 
-document.getElementById("demo").innerHTML = underscores;
+document.getElementById("game-board").innerHTML = underscores;

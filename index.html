@@ -12,13 +12,13 @@
       <h1>Welcome to 'Hangman'</h1></header>
     <main>
       <div class="alphabet-selector">
-        <button type = "button" id="pick-letter">Please select a letter:</button>
+        <button type = "button" id="pick-letter" class="button">Please select a letter:</button>
           <div class="letter-picker">
 
 
-      <!-- <button type="button" id="Start">"Dare To 'play' HANGMAN?"</button> -->
-      <p>Your "word" has this many letters.</p>
-      <p id="demo"></p>
+
+      <p>Your "word" has this many letters:</p>
+      <p id="game-board"></p>
 
 
       <div id="alphabet">
@@ -29,7 +29,7 @@
     </main>
 
     <script>function produceGameBoard() {
-      document.getElementById("demo").interHTML = "result";
+      document.getElementById("game-board").interHTML = "result";
     }
     </script>
     <script src="./js/main.js"></script>
