@@ -14,6 +14,7 @@ var commonWords = [
   "come","made","may","part"
 ];
 
+<<<<<<< HEAD
 var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 let alphNode = document.querySelector("div#alphabet")
@@ -23,6 +24,11 @@ alphNode.textContent = alphabet.join(" ")
 //code for selecting word from
 function chooseWord() {
   let thing = commonWords[(Math.floor(Math.random() * commonWords.length))];
+=======
+//code for selecting word from
+function chooseWord() {
+  let thing =  commonWords[(Math.floor(Math.random() * commonWords.length))];
+>>>>>>> 51c93b7e5bd1980598638d2380bbafc12a3e692f
   return thing;
  }
 
