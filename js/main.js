@@ -34,7 +34,6 @@ function chooseWord() {
  }
 
 var word = chooseWord()
-console.log(word)
 
 
 function drawUnderscores ( word ) {
@@ -42,19 +41,25 @@ function drawUnderscores ( word ) {
   for (var i = 0; i < word.length; i++) {
     result += "_ ";
 	}
-	return result;  // to the HTML window
+	return result;
 }
-//  RETURN blanksForAnswerWindow
 
 var underscores = drawUnderscores(word)
 
 
-// get guessed letter from User
-
 function alterAt ( n, c, originalString ) {
   return originalString.substr(0,n) + c + originalString.substr(n+1);
 }
-// function alterAt ( 3, l, "helko world")
+
+function guessLetter (letter, shown, answer) {
+  var checkIndex=0;
+  checkIndex = answer.indexOf(letter);
+  while (checkIndex >= 0){
+    shown = alterAt (checkIndex, letter, shown);
+    checkIndex = answer.indexOf(letter, checkIndex + 1)
+  }
+  return shown;
+}
 
   // replaces correctly-guessed letter
 function show (letter, shown, checkLetter) {
