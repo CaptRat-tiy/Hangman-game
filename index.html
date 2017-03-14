@@ -8,27 +8,66 @@
   </head>
 
   <body>
-    <header>
-      <h1>Welcome to 'Hangman'</h1></header>
+      <div class="parent_cont">
+        <div class="child_cont">
+        <h1>Welcome to 'Hangman'</h1>
+        </div>
+        <h3 class="message">Please Select a Letter:</h3>
+
+      <!-- <div class="feedback">
+        <form class="guess">
+          <input type="text" name="guess" placeholder="_" maxlength="1">
+          <button id="btn" class="btn">Guess</button>
+        </form>
+        <button class="reset">Reset</button>
+        <div class="response"></div>
+        <div class="tracker"></div>
+          <p>Previous Attempts:</p>
+        <div class="guessedLetters"></div>
+        <div class="feedback"></div>
+        <div class="guessesRemaining">Guesses Remaining:</div>
+      </div> -->
+
+
+
     <main>
       <div class="alphabet-selector">
-        <button type = "button" id="pick-letter" class="button">Please select a letter:</button>
-        <input id="letter-input" type="text" max-length="1"/>
-          <div class="letter-picker">
+        <button type="button" id="pick-letter">Select a letter:</button>
+          <input id="letter-input" type="text" max-length="1">
+            <div class="letter-picker">
 
+            </div>
+      </div>
 
-      <p>Your "word" has this many letters:</p>
+      <!-- <button type="button" id="Start">"Dare To 'play' HANGMAN?"</button> -->
+      <p>How many letters do you have to get right?</p>
       <p id="game-board"></p>
 
 
       <div id="alphabet">
         <p></p>
-        <p id="you-chose"></p>
       </div>
 
+
+      <div class="body">
+        <section class="parts">
+          <div id="head"></div>
+          <div id="neck"></div>
+          <div id="torso"></div>
+          <div id="arm1"></div>
+          <div id="arm2"></div>
+          <div id="leg1"></div>
+          <div id="leg2"></div>
+          <div id="hang"></div>
+        </section>
+      </div>
     </main>
 
 
     <script src="./js/main.js"></script>
+    <script src="./js/common-words.js"></script>
+    <script src="./js/alphabet.js"></script>
+    <script src="./js/file-2.js"></script>
+
   </body>
 </html>

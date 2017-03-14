@@ -53,7 +53,7 @@ clear:both;
 }
 
 #alphabet {
-  width: 450px;
+  width: 500px;
   height: auto;
   border: 1px solid black;
   color: red;
@@ -62,11 +62,216 @@ clear:both;
   margin: auto;
 }
 
+#chooseLetter {
+  background-color: grey;
+  border: 2px black solid;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
 #game-board {
   background-color: #4CAF50;
   border: 1px solid black;
-  width: 6em;
+  width: 15em;
   margin:2%;
   padding: 2%;
   color:white;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: lightgrey;
+  height: auto;
+  width: auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+.parent_cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.child_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;;
+  align-items: center;
+  text-align: center;
+  /*background-color: darkblue;*/
+  color: black;
+  height: 90px;
+  width: 600px;
+  /*padding: 10px;*/
+  margin: 90px;
+  /*border-radius: 10px;*/
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  height: 24px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+}
+
+
+.btn {
+  background: grey;
+  border-radius: 10px;
+  font-family: Arial;
+  color: white;
+  font-size: 18px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: green;
+  text-decoration: none;
+}
+
+.reset {
+    margin: 15px;
+    background: maroon;
+    border-color: white;
+    border-radius: 10px;
+    font-family: Arial;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px 5px 10px;
+    text-decoration: none;
+}
+
+.reset:hover {
+  background: blue;
+  text-decoration: none;
+}
+
+.tracker {
+  font-size: 25px;
+  color: black;ß
+  margin: 10px 0;
+}
+
+.guessedLetters {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.feedback {
+  font-size: 30px;
+  margin: 10px 0;
+  font-weight: bolder;
+}
+
+.guessesRemaining {
+  font-size: 20px;
+  margin: 10px 0;
+  color: darkred;
+}
+
+
+.part {
+  width: 400px;
+  height: 400px;
+  positon: absolute;
+  color: black;
+}
+
+.body div {
+  visibility: hidden;
+}
+
+#head {
+  position: relative;
+  border-radius: 50%;
+  background-color: black;
+  width: 80px;
+  height: 80px;
+  left: 220px;
+  margin: 0;
+}
+
+#neck {
+  position: relative;
+  background-color: black;
+  width: 30px;
+  height: 40px;
+  left: 245px;
+  margin: 0;
+  top: -15px;
+}
+
+
+#torso {
+  position: relative;
+  width: 90px;
+  height: 160px;
+  top: -15px;
+  left: 215px;
+  margin: 0;
+  background-color: black;
+}
+
+#arm1 {
+  position: relative;
+  width: 40px;
+  height: 120px;
+  background-color: black;
+  margin: 0;
+  top: -185px;
+  left: 185px;
+  transform: rotate(30deg);
+  border-top-left-radius: 20px;
+}
+
+#arm2 {
+  position: relative;
+  width: 40px;
+  height: 120px;
+  background-color: black;
+  margin: 0;
+  top: -305px;
+  left: 295px;
+  transform: scaleX(-1) rotate(30deg);
+  border-top-left-radius: 20px;
+}
+
+#leg1 {
+  position: relative;
+  width: 40px;
+  height: 160px;
+  background-color: #036;
+  top: -255px;
+  left: 215px;
+  margin: 0;
+}
+
+#leg2 {
+  position: relative;
+  width: 40px;
+  height: 160px;
+  background-color: black;
+  top: -415px;
+  left: 265px;
+  margin: 0;
+}
+
+#hang {
+  position: relative;
+  left: 220px;
+  top: -835px;
 }
