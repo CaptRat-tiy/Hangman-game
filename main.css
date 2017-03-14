@@ -23,12 +23,43 @@ a:active{
 text-decoration: line-through;
 }
 
+body {
+  margin: 0;
+  font-family: Arial;
+  background-color: lightgrey;
+  height: 100%;
+  width: auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  :
+}
+
 html, body {
   height:100%;
   position: relative;
   min-height: 100%;
   margin: 0;
   /*padding: 10px;*/
+}
+
+input {
+  height: 24px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+}
+
+/* CLASS stylings*/
+
+
+/*.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}*/
+
+.body div {
+  visibility: hidden;
 }
 
 .button {
@@ -42,6 +73,21 @@ html, body {
     font-size: 14px;
 }
 
+.btn {
+  background: grey;
+  border-radius: 10px;
+  font-family: Arial;
+  color: white;
+  font-size: 18px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: green;
+  text-decoration: none;
+}
+
 .cf:before,
 .cf:after{
  content:" ";
@@ -50,53 +96,6 @@ html, body {
 
 .cf:after{
 clear:both;
-}
-
-#alphabet {
-  width: 500px;
-  height: auto;
-  border: 1px solid black;
-  color: red;
-  font-size: 20px;
-  padding: 15px 32px;
-  margin: auto;
-}
-
-#chooseLetter {
-  background-color: grey;
-  border: 2px black solid;
-  color: white;
-  padding: 10px 15px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 14px;
-}
-
-#game-board {
-  background-color: #4CAF50;
-  border: 1px solid black;
-  width: 15em;
-  margin:2%;
-  padding: 2%;
-  color:white;
-}
-
-body {
-  margin: 0;
-  font-family: Arial;
-  background-color: lightgrey;
-  height: auto;
-  width: auto;
-  background-repeat: no-repeat;
-  background-position: center top;
-}
-
-.parent_cont {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .child_cont {
@@ -115,32 +114,35 @@ body {
 }
 
 .feedback {
+  font-size: 30px;
+  margin: 10px 0;
+  font-weight: bolder;
+}
+
+.guessedLetters {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.guessesRemaining {
+  font-size: 20px;
+  margin: 10px 0;
+  color: darkred;
+}
+
+.parent_cont {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-image: url("image/background.jpg");
 }
 
-input {
-  height: 24px;
-  font-size: 20px;
-  width: 40px;
-  text-align: center;
-}
-
-
-.btn {
-  background: grey;
-  border-radius: 10px;
-  font-family: Arial;
-  color: white;
-  font-size: 18px;
-  padding: 5px 10px 5px 10px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: green;
-  text-decoration: none;
+.part {
+  width: 400px;
+  height: 400px;
+  positon: absolute;
+  color: black;
 }
 
 .reset {
@@ -166,33 +168,67 @@ input {
   margin: 10px 0;
 }
 
-.guessedLetters {
-  font-size: 25px;
-  margin: 10px 0;
-}
 
-.feedback {
-  font-size: 30px;
-  margin: 10px 0;
-  font-weight: bolder;
-}
+/* ID stylings*/
 
-.guessesRemaining {
+#alphabet {
+  width: 500px;
+  height: auto;
+  border: 1px solid black;
+  color: red;
   font-size: 20px;
-  margin: 10px 0;
-  color: darkred;
+  padding: 15px 32px;
+  margin: auto;
 }
 
-
-.part {
-  width: 400px;
-  height: 400px;
-  positon: absolute;
-  color: black;
+#arm1 {
+  position: relative;
+  width: 40px;
+  height: 120px;
+  background-color: red;
+  margin: 0;
+  top: -185px;
+  left: 185px;
+  transform: rotate(30deg);
+  border-top-left-radius: 20px;
 }
 
-.body div {
-  visibility: hidden;
+#arm2 {
+  position: relative;
+  width: 40px;
+  height: 120px;
+  background-color: pink;
+  margin: 0;
+  top: -305px;
+  left: 295px;
+  transform: scaleX(-1) rotate(30deg);
+  border-top-left-radius: 20px;
+}
+
+#chooseLetter {
+  background-color: grey;
+  border: 2px black solid;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+#game-board {
+  background-color: #4CAF50;
+  border: 1px solid black;
+  width: 15em;
+  margin:2%;
+  padding: 2%;
+  color:white;
+}
+
+#hang {
+  position: relative;
+  left: 220px;
+  top: -835px;
 }
 
 #head {
@@ -202,6 +238,26 @@ input {
   width: 80px;
   height: 80px;
   left: 220px;
+  margin: 0;
+}
+
+#leg1 {
+  position: relative;
+  width: 40px;
+  height: 160px;
+  background-color: grey;
+  top: -255px;
+  left: 215px;
+  margin: 0;
+}
+
+#leg2 {
+  position: relative;
+  width: 40px;
+  height: 160px;
+  background-color: blue;
+  top: -415px;
+  left: 265px;
   margin: 0;
 }
 
@@ -215,7 +271,6 @@ input {
   top: -15px;
 }
 
-
 #torso {
   position: relative;
   width: 90px;
@@ -223,55 +278,5 @@ input {
   top: -15px;
   left: 215px;
   margin: 0;
-  background-color: black;
-}
-
-#arm1 {
-  position: relative;
-  width: 40px;
-  height: 120px;
-  background-color: black;
-  margin: 0;
-  top: -185px;
-  left: 185px;
-  transform: rotate(30deg);
-  border-top-left-radius: 20px;
-}
-
-#arm2 {
-  position: relative;
-  width: 40px;
-  height: 120px;
-  background-color: black;
-  margin: 0;
-  top: -305px;
-  left: 295px;
-  transform: scaleX(-1) rotate(30deg);
-  border-top-left-radius: 20px;
-}
-
-#leg1 {
-  position: relative;
-  width: 40px;
-  height: 160px;
-  background-color: #036;
-  top: -255px;
-  left: 215px;
-  margin: 0;
-}
-
-#leg2 {
-  position: relative;
-  width: 40px;
-  height: 160px;
-  background-color: black;
-  top: -415px;
-  left: 265px;
-  margin: 0;
-}
-
-#hang {
-  position: relative;
-  left: 220px;
-  top: -835px;
+  background-color: khaki;
 }

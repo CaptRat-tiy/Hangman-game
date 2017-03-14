@@ -1,4 +1,6 @@
 // document.getElementById("Start").onclick = function() {chooseWord()};
+
+
 let render = {
     randomWord: " ",
     guess: " ",
@@ -40,13 +42,14 @@ let alphNode = document.querySelector("div#alphabet")
 
 alphNode.textContent = alphabet.join(" ")
 
-var chooseLetter=document.getElementById("chooseLetter");
-// chooseLetter.addEventListener("input", display);
+var chooseLetter = document.getElementById("letter-input");
+// var userLetterChoice = document.addEventListener("letter-input")
+
 
 
 function pickLetter (){
 var letter = prompt("Your choice of letter?");
-console.log(letter);
+// console.log(letter);   not working
 }
 
 function chooseWord() {
