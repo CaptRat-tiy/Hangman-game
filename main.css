@@ -28,11 +28,10 @@ html, body {
   position: relative;
   min-height: 100%;
   margin: 0;
-  /*padding: 10px;*/
 }
 
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
