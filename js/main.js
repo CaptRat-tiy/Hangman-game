@@ -22,8 +22,19 @@ const hangman = (function() {
 
   var chooseLetter = document.getElementById("letter-input");
   // var userLetterChoice = document.addEventListener("letter-input")
+  //
+  // guessInput = document.querySelector("input#letter");
+  // var userInput = document.getElementById("input#letter").textContent;
 
-
+let vari = document.querySelector("input#vari");
+let btn = document.querySelector("button#accept");
+btn.addEventListener('click', function(){
+  letter.vari.value;
+  console.log(letter);
+  return letter;
+}
+)
+  console.log(userInput);
 
   function pickLetter (){
   var letter = prompt("Your choice of letter?");
@@ -43,9 +54,9 @@ const hangman = (function() {
     var result = "";
     for (var i = 0; i < word.length; i++) {
       result += "_ ";
+      // console.log(result);
   	}
   	return result;
-    console.log(result);
   }
 
   var underscores = drawUnderscores(word)
