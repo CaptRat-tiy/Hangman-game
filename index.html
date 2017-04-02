@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>Hangman Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Word Guessing Game</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
 
-    <link rel="stylesheet" href="main.css">
-  </head>
+<body>
+  <div class="statusHolder">
+    <h2>Word Guess</h2>
+    <h5>(hint: correct guesses don't hurt your score)</h5>
+  </div>
+  <div class="gameHolder">
+    <div class="turnCount">
+    </div>
+    <div class="guessHolder">
+      <input class= "guessLetter" type="text" name="guess" placeholder = "Guess A Letter" maxlength = "1">
+      <button class = "submitGuess">Guess</button>
+    </div>
+    <div class="progressHolder">
+      <div class="progressString">
 
-  <body>
-    <header>
-      <h1>Welcome to 'Hangman'</h1></header>
-    <main>
-      <div class="alphabet-selector">
-        <button type = "button" id="pick-letter" class="button">Please select a letter:</button>
-        <input id="letter-input" type="text" max-length="1"/>
-          <div id="letter-picker">
-            <p>Your "word" has this many letters:</p>
-            <p id="game-board"></p>
-          </div>
-          <div class="guessbutton">
-            <input type="text" maxlength="1" minlength="1" name="letter" id="letter" placeholder="Guess a letter" />
-    <input id="guess" name="guess" type="submit" value="Guess" />
-          </div>
       </div>
-      <div id="alphabet">
-        <p></p>
-        <p id="you-chose"></p>
-      </div>
+    </div>
 
-    </main>
+    <div class="guessedLetters">
+    </div>
+    <div class="newGameHolder">
+      <button class= "newGameButton" type="button" name="newGameButton" onclick="window.location.reload()">Start new game</button>
 
-<script src="./js/main.js">
+    </div>
+  </div>
 
-</script>
-    <!-- <script src="./public/bundle.js"></script> -->
-  </body>
+    <script src="js/main.js"></script>
+
+</body>
 </html>

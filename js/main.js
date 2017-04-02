@@ -1,98 +1,133 @@
-// https://jsfiddle.net/phollott/x29ym2ag/
-
-
 const hangman = (function() {
 
-  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var answerWord= '';
+var guess;
+var guessedLetters = '';
+var guessProgress= '';
+var status = 'status';
+var tries = '10';
+console.log(answerWord);
 
-  var commonWords = [
-    "them","cough","hand","actor","torque","finish","fish","youth","that","bait","help",
-    "wash","fort","only","garish","waste","with","history","they","island","batch","bet",
-    "thank","have","from","order","bone","had","butterfly","word","bunt","notch",
-    "what","ball","were","wet","when","your","scan","said","there",
-    "abuse","nanny","each","which","she","doe","how","their","cliff","will",
-    "puppy","other","about","out","many","then","them","these","son",
-    "some","hurt","would","make","like","him","into","time","hash",
-    "look","two","more","write","gonzo","see","number","note","way",
-    "could","people","max","than","first","water","been","call",
-    "who","oil","its","now","find","long","down","day","did","get",
-    "come","made","may","part"]
+var commonWords = [
+  "thesis","band","storage","thank","water","whistle","vehicle","wither","lariat","turbulence","thistle","have","from","bone","while","word","stadium","knot","what","dance","were","when","your","cannon","tower","there","vacant","each","which","she","how","their","cloud","other","about","potluck","many","then","them","these","sock","some","father","would","make","like","him","into","island","has","look","boat","more","write","sequin","number","football","could","people","brat","first","water","been","call","coral","fuel","pomegranate","explode","find","long","down","tulip","mastadon", "channel","ferry","made","mayfly","part"];
 
-
-  let alphNode = document.querySelector("div#alphabet")
-
-  alphNode.textContent = alphabet.join(" ")
-
-  var chooseLetter = document.getElementById("letter-input");
-  // var userLetterChoice = document.addEventListener("letter-input")
-  //
-  // guessInput = document.querySelector("input#letter");
-  // var userInput = document.getElementById("input#letter").textContent;
-
-let vari = document.querySelector("input#vari");
-let btn = document.querySelector("button#accept");
-btn.addEventListener('click', function(){
-  letter.vari.value;
-  console.log(letter);
-  return letter;
+function getWord() {
+  console.log('word');
+  answerWord = commonWords[Math.floor(Math.random () * commonWords.length)];
+  console.log(answerWord);
+  return answerWord;
 }
-)
-  console.log(userInput);
 
-  function pickLetter (){
-  var letter = prompt("Your choice of letter?");
-  // console.log(letter);   not working
+document.querySelector('.turnCount').innerHTML = 'Turns: ' + tries
+
+function setAnswerWord() {
+answerWord = getWord();
+}
+
+function setProgress() {
+  console.log(answerWord);
+  for (var i = 0; i < answerWord.length; i++) {
+    guessProgress+='_'
   }
+}
 
-  function chooseWord() {
-    let thing = commonWords[(Math.floor(Math.random() * commonWords.length))];
-    return thing;
-   }
+function showProgress () {
+  document.querySelector('.progressHolder').innerHTML = guessProgress;
+}
 
-  var word = chooseWord()
-  console.log(word)
+function inputGuess () {
+  return document.querySelector('.guessLetter').value;
+}
 
+function setGuess() {
+  guess = inputGuess();
+  updateGuess();
+}
 
-  function drawUnderscores (word) {
-    var result = "";
-    for (var i = 0; i < word.length; i++) {
-      result += "_ ";
-      // console.log(result);
-  	}
-  	return result;
+document.querySelector('.submitGuess').onclick = setGuess;
+
+document.querySelector('.submitGuess').disabled = false;
+
+function updateGuess() {
+let ansArray = answerWord.split('');
+let progArray = guessProgress.split('');
+for (let i = 0; i < answerWord.length; i++) {
+  if (ansArray[i] === guess) {
+    progArray[i] = guess;
   }
+}
+answerWord = ansArray.join('');
+guessProgress = progArray.join('')
 
-  var underscores = drawUnderscores(word)
+showProgress();
+checkMath();
+setStatus();
+trackGuesses();
+checkWin();
+checkLose();
+console.log(guessedLetters);
+}
 
-  function alterAt ( n, c, originalString ) {
-    return originalString.substr(0,n) + c + originalString.substr(n+1);
+function checkMath() {
+  if (answerWord.includes(guess)) {
+    document.querySelector('.turnCount').innerHTML = "Attempts remaining: " + tries;
+    return true;
+  } else {
+    document.querySelector('.turnCount').innerHTML = "Attempts remaining: " + tries;
+    return false;
   }
+}
 
-  function guessLetter (letter, shown, answer) {
-    var checkIndex=0;
-    checkIndex = answer.indexOf(letter);
-    while (checkIndex >= 0){
-      shown = alterAt (checkIndex, letter, shown);
-      checkIndex = answer.indexOf(letter, checkIndex + 1)
-    }
-    return shown;
+function trackGuesses() {
+  document.querySelector('.guessedLetters').innerHTML = 'Letters guessed: ' + guessedLetters;
+}
+
+function setStatus() {
+  if (checkMath() === true) {
+    status = "Correct!";
+    guessedLetters+=guess + ', ';
+  } else {
+    status = 'Nope! Try again.'
+    tries--;
+    document.querySelector('.turnCount').innerHTML = 'Tries: ' + tries;
+    guessedLetters += guess + ", "
   }
+  document.querySelector('.statusHolder').innerHTML = status;
+}
 
-    // replaces correctly-guessed letter
-  function show (letter, shown, checkLetter) {
-    let s = shown.substr(0,checkLetter) + letter + shown.substr(checkLetter+1, shown.length)
-    return s;
+function checkLose() {
+  if (tries <= 0) {
+    status = 'You Lost!';
+    document.querySelector('.statusHolder').innerHTML = status;
+    document.querySelector('.submitGuess').disabled = true;
+    return true;
   }
+}
 
-  document.getElementById("game-board").innerHTML = underscores;
-
-  return {
-    pickLetter: pickletter,
-    chooseWord: chooseWord,
-    drawUnderscores: drawUnderscores,
-    alterAt: alterAt,
-    guessLetter: guessLetter,
+function checkWin() {
+  if (guessProgress.includes('_')) {
+    return false;
+  } else {
+    status = 'You won!';
+    document.querySelector('.statusHolder').innerHTML = status;
+    document.querySelector('.submitGuess').disabled = true;
+    return true;
   }
+}
+
+setAnswerWord();
+setProgress();
+showProgress();
+
+
+return {
+  getWord: getWord,
+  setAnswerWord: setAnswerWord,
+  setProgress: setProgress,
+  showProgress: showProgress,
+  inputGuess: inputGuess,
+  setGuess: setGuess,
+  updateGuess: updateGuess,
+  checkMath: checkMath,
+}
 })();
-
-module.exports = hangman;
