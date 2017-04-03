@@ -6,6 +6,14 @@ body {
     background-repeat: no-repeat;
 }
 
+html, body {
+  height:100%;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  /*padding: 10px;*/
+}
+
 #letter-input {
     border:1px gray solid;
     width:20pt;
@@ -29,50 +37,12 @@ body {
     color: gray;
 }
 
-.input-area {
-    width:75px;
-    margin:auto;
-    padding:3pt;
-    border: 1px darkgray solid;
-    border-radius:15px;
-    background:red;
-}
-
-<<<<<<< HEAD
-body {
-  margin: 0;
-  font-family: Arial;
-  background-color: lightgrey;
-  height: 100%;
-  width: auto;
-  background-repeat: no-repeat;
-  background-position: center top;
-  :
-}
-
-html, body {
-  height:100%;
-  position: relative;
-  min-height: 100%;
-  margin: 0;
-  /*padding: 10px;*/
-}
-
 input {
   height: 24px;
   font-size: 20px;
   width: 40px;
   text-align: center;
 }
-
-/* CLASS stylings*/
-
-
-/*.feedback {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}*/
 
 .body div {
   visibility: hidden;
