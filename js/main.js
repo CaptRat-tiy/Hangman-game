@@ -1,95 +1,135 @@
-// document.getElementById("Start").onclick = function() {chooseWord()};
+const hangman = (function() {
 
-
-let render = {
-    randomWord: " ",
-    guess: " ",
-    tracker: [],
-    feedback: " ",
-    guessedLetters: [],
-    guessesRemaining: 10,
-    mistakeMessage: " ",
-    head: "hidden",
-    neck: "hidden",
-    torso: "hidden",
-    arm1: "hidden",
-    arm2: "hidden",
-    leg1: "hidden",
-    leg2: "hidden",
-    hang: "hidden",
-    btn: "hidden",
-}
-
-document.getElementById("pick-letter").onclick = function() {pickLetter()};
-
-var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var answerWord= '';
+var guess;
+var guessedLetters = '';
+var guessProgress= '';
+var status = 'status';
+var tries = '10';
+console.log(answerWord);
 
 var commonWords = [
-  "them","cough","hand","actor","torque","finish","fish","youth","that","bait","help",
-  "wash","fort","only","garish","waste","with","history","they","island","batch","bet",
-  "thank","have","from","order","bone","had","butterfly","word","bunt","notch",
-  "what","ball","were","wet","when","your","scan","said","there",
-  "abuse","nanny","each","which","she","doe","how","their","cliff","will",
-  "puppy","other","about","out","many","then","them","these","son",
-  "some","hurt","would","make","like","him","into","time","hash",
-  "look","two","more","write","gonzo","see","number","note","way",
-  "could","people","max","than","first","water","been","call",
-  "who","oil","its","now","find","long","down","day","did","get",
-  "come","made","may","part"]
+  "thesis","band","storage","thank","water","whistle","vehicle","wither","lariat","turbulence","thistle","have","from","bone","while","word","stadium","knot","what","dance","were","when","your","cannon","tower","there","vacant","each","which","she","how","their","cloud","other","about","potluck","many","then","them","these","sock","some","father","would","make","like","him","into","island","has","look","boat","more","write","sequin","number","football","could","people","brat","first","water","been","call","coral","fuel","pomegranate","explode","find","long","down","tulip","mastadon", "channel","ferry","made","mayfly","part"];
 
-
-let alphNode = document.querySelector("div#alphabet")
-
-alphNode.textContent = alphabet.join(" ")
-
-var chooseLetter = document.getElementById("letter-input");
-// var userLetterChoice = document.addEventListener("letter-input")
-
-
-
-function pickLetter (){
-var letter = prompt("Your choice of letter?");
-// console.log(letter);   not working
+function getWord() {
+  console.log('word');
+  answerWord = commonWords[Math.floor(Math.random () * commonWords.length)];
+  console.log(answerWord);
+  return answerWord;
 }
 
-function chooseWord() {
-  let thing = commonWords[(Math.floor(Math.random() * commonWords.length))];
-  return thing;
- }
-
-var word = chooseWord()
-console.log(word)
+document.querySelector('.turnCount').innerHTML = 'Turns: ' + tries
 
 
-function drawUnderscores (word) {
-  var result = "";
-  for (var i = 0; i < word.length; i++) {
-    result += "_ ";
-	}
-	return result;
-  console.log(result);
+function setAnswerWord() {
+answerWord = getWord();
 }
 
-var underscores = drawUnderscores(word)
-
-function alterAt ( n, c, originalString ) {
-  return originalString.substr(0,n) + c + originalString.substr(n+1);
-}
-
-function guessLetter (letter, shown, answer) {
-  var checkIndex=0;
-  checkIndex = answer.indexOf(letter);
-  while (checkIndex >= 0){
-    shown = alterAt (checkIndex, letter, shown);
-    checkIndex = answer.indexOf(letter, checkIndex + 1)
+function setProgress() {
+  console.log(answerWord);
+  for (var i = 0; i < answerWord.length; i++) {
+    guessProgress+='_'
   }
-  return shown;
 }
 
-  // replaces correctly-guessed letter
-function show (letter, shown, checkLetter) {
-  let s = shown.substr(0,checkLetter) + letter + shown.substr(checkLetter+1, shown.length)
-  return s;
+function showProgress () {
+  document.querySelector('.progressHolder').innerHTML = guessProgress;
 }
 
-document.getElementById("game-board").innerHTML = underscores;
+function inputGuess () {
+  return document.querySelector('.guessLetter').value;
+}
+
+function setGuess() {
+  guess = inputGuess();
+  updateGuess();
+}
+
+document.querySelector('.submitGuess').onclick = setGuess;
+
+document.querySelector('.submitGuess').disabled = false;
+
+function updateGuess() {
+let ansArray = answerWord.split('');
+let progArray = guessProgress.split('');
+for (let i = 0; i < answerWord.length; i++) {
+  if (ansArray[i] === guess) {
+    progArray[i] = guess;
+  }
+}
+
+answerWord = ansArray.join('');
+guessProgress = progArray.join('')
+
+showProgress();
+checkMath();
+setStatus();
+trackGuesses();
+checkWin();
+checkLose();
+console.log(guessedLetters);
+}
+
+function checkMath() {
+  if (answerWord.includes(guess)) {
+    document.querySelector('.turnCount').innerHTML = "Attempts remaining: " + tries;
+    return true;
+  } else {
+    document.querySelector('.turnCount').innerHTML = "Attempts remaining: " + tries;
+    return false;
+  }
+}
+
+function trackGuesses() {
+  document.querySelector('.guessedLetters').innerHTML = 'Letters guessed: ' + guessedLetters;
+}
+
+function setStatus() {
+  if (checkMath() === true) {
+    status = "Correct!";
+    guessedLetters+=guess + ', ';
+  } else {
+    status = 'Nope! Try again.'
+    tries--;
+    document.querySelector('.turnCount').innerHTML = 'Tries: ' + tries;
+    guessedLetters += guess + ", "
+  }
+  document.querySelector('.statusHolder').innerHTML = status;
+}
+
+function checkLose() {
+  if (tries <= 0) {
+    status = 'You Lost!';
+    document.querySelector('.statusHolder').innerHTML = status;
+    document.querySelector('.submitGuess').disabled = true;
+    return true;
+  }
+}
+
+function checkWin() {
+  if (guessProgress.includes('_')) {
+    return false;
+  } else {
+    status = 'You won!';
+    document.querySelector('.statusHolder').innerHTML = status;
+    document.querySelector('.submitGuess').disabled = true;
+    return true;
+  }
+}
+
+setAnswerWord();
+setProgress();
+showProgress();
+
+
+return {
+  getWord: getWord,
+  setAnswerWord: setAnswerWord,
+  setProgress: setProgress,
+  showProgress: showProgress,
+  inputGuess: inputGuess,
+  setGuess: setGuess,
+  updateGuess: updateGuess,
+  checkMath: checkMath,
+}
+})();

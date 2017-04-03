@@ -1,28 +1,44 @@
-html, body, * {
- box-sizing:border-box;
+body {
+    font-family:sans-serif;
+    font-weight:bold;
+    font-size:24px;
+    /*background-image: url("image/word guess.jpg");*/
+    background-repeat: no-repeat;
 }
 
-a:link{
- color:gold;
+#letter-input {
+    border:1px gray solid;
+    width:20pt;
+    font-size:14pt;
+    text-align:center;
 }
 
-a:visited{
- color:green;
+#msg{
+  height: 200px;
+  width: 200px;
+  background-color: black;
+  font-size: 2rem;
+  color: white;
 }
 
-a:hover{
- background-color: black;
- color:white;
+.container-title {
+    color:slategray;
 }
 
-a:focus{
- font-style:italic;
+.guessed-letter {
+    color: gray;
 }
 
-a:active{
-text-decoration: line-through;
+.input-area {
+    width:75px;
+    margin:auto;
+    padding:3pt;
+    border: 1px darkgray solid;
+    border-radius:15px;
+    background:red;
 }
 
+<<<<<<< HEAD
 body {
   margin: 0;
   font-family: Arial;
@@ -92,12 +108,33 @@ input {
 .cf:after{
  content:" ";
  display:table;
+=======
+.message-box {
+ font-size: 4em;
+ color: #fff;
+ font-family: sans-serif;
+ letter-spacing: 3px;
 }
 
-.cf:after{
-clear:both;
+.progressHolder {
+  letter-spacing: 7px;
 }
 
+.side-container {
+    margin-top:45px;
+    margin-left:130px;
+    width:170px;
+    text-align:center;
+>>>>>>> 8bfdb6c2a858ff327db2a254dc54be06bf6ae691
+}
+
+.shown_letter {
+    border-bottom: 3px black solid;
+    padding: 0 2px;
+    color:#1c2025;
+}
+
+<<<<<<< HEAD
 .child_cont {
   display: flex;
   flex-direction: column;
@@ -223,6 +260,25 @@ clear:both;
   margin:2%;
   padding: 2%;
   color:white;
+=======
+.topmatter {
+    height:210px;
+}
+
+.word-box {
+    width:250px;
+    margin:auto;
+    margin-top:25px;
+    text-align:center;
+}
+
+.word-display {
+    background:lightblue;
+    border:1px blue solid;
+    padding:3pt;
+    border-radius:15px;
+    -moz-border-radius:15px;
+>>>>>>> 8bfdb6c2a858ff327db2a254dc54be06bf6ae691
 }
 
 #hang {

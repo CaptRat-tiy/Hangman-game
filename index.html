@@ -1,73 +1,35 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Hangman Game</title>
-
-    <link rel="stylesheet" href="main.css">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Word Guessing Game</title>
+      <link rel="stylesheet" type="text/css" href="main.css">
   </head>
 
   <body>
-      <div class="parent_cont">
-        <div class="child_cont">
-        <h1>Welcome to 'Hangman'</h1>
+    <div class="statusHolder">
+      <h2>Word Guess</h2>
+      <h5>(hint: correct guesses don't hurt your score)</h5>
+    </div>
+    <div class="gameHolder">
+      <div class="turnCount">
+      </div>
+      <div class="guessHolder">
+        <input class= "guessLetter" type="text" name="guess" placeholder = "Guess A Letter" maxlength = "1">
+        <button class = "submitGuess">Guess</button>
+      </div>
+      <div class="progressHolder">
+        <div class="progressString">
         </div>
-        <h3 class="message">Please Select a Letter:</h3>
-
-      <!-- <div class="feedback">
-        <form class="guess">
-          <input type="text" name="guess" placeholder="_" maxlength="1">
-          <button id="btn" class="btn">Guess</button>
-        </form>
-        <button class="reset">Reset</button>
-        <div class="response"></div>
-        <div class="tracker"></div>
-          <p>Previous Attempts:</p>
-        <div class="guessedLetters"></div>
-        <div class="feedback"></div>
-        <div class="guessesRemaining">Guesses Remaining:</div>
-      </div> -->
-
-
-
-    <main>
-      <div class="alphabet-selector">
-        <button type="button" id="pick-letter">Select a letter:</button>
-          <input id="letter-input" type="text" max-length="1">
-            <div class="letter-picker">
-              <p></p>
-            </div>
       </div>
 
-      <!-- <button type="button" id="Start">"Dare To 'play' HANGMAN?"</button> -->
-      <p>This many letters:</p>
-      <p id="game-board"></p>
-
-
-      <div id="alphabet">
-        <p></p>
+      <div class="guessedLetters">
       </div>
-
-
-      <div class="body">
-        <section class="parts">
-          <div id="head"></div>
-          <div id="neck"></div>
-          <div id="torso"></div>
-          <div id="arm1"></div>
-          <div id="arm2"></div>
-          <div id="leg1"></div>
-          <div id="leg2"></div>
-          <div id="hang"></div>
-        </section>
+      <div class="newGameHolder">
+        <button class= "newGameButton" type="button" name="newGameButton" onclick="window.location.reload()">Start new game</button>
       </div>
-    </main>
-
-
-    <script src="./js/main.js"></script>
-    <script src="./js/common-words.js"></script>
-    <script src="./js/alphabet.js"></script>
-    <script src="./js/file-2.js"></script>
-
+    </div>
+      <script src="js/main.js"></script>
   </body>
 </html>
