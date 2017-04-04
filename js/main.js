@@ -1,5 +1,3 @@
-
-
 const hangman = (function() {
 
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -27,7 +25,7 @@ const hangman = (function() {
   var answerWord = chooseWord(commonWords)
   console.log(answerWord)
 
-  alphNode.textContent = alphabet.join(" ")
+  // alphNode.textContent = alphabet.join(" ")
 
   //when user makes guess:
   function inputGuess(){
@@ -75,14 +73,6 @@ function updateGuess() {
   updateUnderscores(guessProgress)
 }
 
-
   document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
 
-  // return {
-  //   pickLetter: pickLetter,
-  //   chooseWord: chooseWord,
-  //   drawUnderscores: drawUnderscores,
-  // }
 })();
-
-// module.exports = hangman;
