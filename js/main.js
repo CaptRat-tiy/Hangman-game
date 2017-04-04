@@ -1,6 +1,14 @@
+
+
 const hangman = (function() {
 
+  let alphNode = document.querySelector("div#alphabet")
+
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+
+  var chooseLetter = document.getElementById("letter-input");
+// can modify tries for later difficulty setting
+  var tries = 8;
 
   var commonWords = [
     "them","cough","hand","actor","torque","finish","fish","youth","that","bait","help",
@@ -15,70 +23,39 @@ const hangman = (function() {
     "who","oil","its","now","find","long","down","day","did","get",
     "come","made","may","part"]
 
+    var word = chooseWord(commonWords)
+    console.log(word)
 
-  let alphNode = document.querySelector("div#alphabet")
+
+
 
   alphNode.textContent = alphabet.join(" ")
 
-  var chooseLetter = document.getElementById("letter-input");
-  // var userLetterChoice = document.addEventListener("letter-input")
-
-
-
-  function pickLetter (){
-  var letter = prompt("Your choice of letter?");
-  // console.log(letter);   not working
-  }
-
-  function chooseWord() {
-    let thing = commonWords[(Math.floor(Math.random() * commonWords.length))];
+  //display total tries on page load:
+  document.getElementById("tries").innerHTML = "Tries: " +tries;
+// create Answer word "chooseword"
+  function chooseWord(array) {
+    let thing = array[(Math.floor(Math.random() * array.length))];
     return thing;
    }
 
-  var word = chooseWord()
-  console.log(word)
-
-
+// create a string of underscores (replacing word length) that shows progress
   function drawUnderscores (word) {
     var result = "";
     for (var i = 0; i < word.length; i++) {
       result += "_ ";
   	}
   	return result;
-    console.log(result);
   }
 
-  var underscores = drawUnderscores(word)
 
-  function alterAt ( n, c, originalString ) {
-    return originalString.substr(0,n) + c + originalString.substr(n+1);
-  }
+  document.getElementById("game-board").innerHTML = drawUnderscores(word);
 
-  function guessLetter (letter, shown, answer) {
-    var checkIndex=0;
-    checkIndex = answer.indexOf(letter);
-    while (checkIndex >= 0){
-      shown = alterAt (checkIndex, letter, shown);
-      checkIndex = answer.indexOf(letter, checkIndex + 1)
-    }
-    return shown;
-  }
-
-    // replaces correctly-guessed letter
-  function show (letter, shown, checkLetter) {
-    let s = shown.substr(0,checkLetter) + letter + shown.substr(checkLetter+1, shown.length)
-    return s;
-  }
-
-  document.getElementById("game-board").innerHTML = underscores;
-
-  return {
-    pickLetter: pickLetter,
-    chooseWord: chooseWord,
-    drawUnderscores: drawUnderscores,
-    alterAt: alterAt,
-    guessLetter: guessLetter,
-  }
+  // return {
+  //   pickLetter: pickLetter,
+  //   chooseWord: chooseWord,
+  //   drawUnderscores: drawUnderscores,
+  // }
 })();
 
 // module.exports = hangman;
