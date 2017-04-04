@@ -2,6 +2,7 @@ body {
     font-family:sans-serif;
     font-weight:bold;
     font-size:24px;
+<<<<<<< HEAD
     /*background-image: url("image/word guess.jpg");*/
     background-repeat: no-repeat;
 }
@@ -37,15 +38,40 @@ html, body {
     color: gray;
 }
 
+=======
+    background-image: url("image/background.jpg");
+    background-repeat: no-repeat;
+    color: blanchedalmond;
+}
+
+html, body {
+  height:100%;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  /*padding: 10px;*/
+}
+
+#letter-input {
+    border:1px red solid;
+    width:20pt;
+    font-size:14pt;
+    text-align:center;
+}
+
+>>>>>>> drew
 input {
   height: 24px;
   font-size: 20px;
   width: 40px;
   text-align: center;
+<<<<<<< HEAD
 }
 
 .body div {
   visibility: hidden;
+=======
+>>>>>>> drew
 }
 
 .button {
@@ -58,6 +84,7 @@ input {
     display: inline-block;
     font-size: 14px;
 }
+<<<<<<< HEAD
 
 .btn {
   background: grey;
@@ -306,3 +333,5 @@ input {
   margin: 0;
   background-color: khaki;
 }
+=======
+>>>>>>> drew
