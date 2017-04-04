@@ -53,17 +53,26 @@ const hangman = (function() {
   	return guessProgress;
   }
 
+function updateUnderscores(string) {
+  // console.log("cheese");
+  document.getElementById("game-board").innerHTML = string;
+}
   // compare chooseword vs answer word
 function updateGuess() {
   let ansArr = answerWord.split('');
   let progArr = guessProgress.split(' ');
-  // console.log("ansArr: ", ansArr);
-  // console.log("progArr: ", progArr);
+  console.log("ansArr: ", ansArr);
+  console.log("progArr: ", progArr);
   for (let i = 0; i < ansArr.length; i++) {
     if (ansArr[i] === chooseLetter) {
-      console.log(true);
-    } else {console.log(false);}
+      progArr[i] = chooseLetter;
+    }
   }
+  console.log(progArr);
+  guessProgress = progArr.join(' ')
+  console.log(guessProgress);
+  // document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
+  updateUnderscores(guessProgress)
 }
 
 
