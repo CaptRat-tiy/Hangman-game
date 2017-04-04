@@ -2,7 +2,9 @@ body {
     font-family:sans-serif;
     font-weight:bold;
     font-size:24px;
-git    background-repeat: no-repeat;
+    background-image: url("image/background.jpg");
+    background-repeat: no-repeat;
+    color: blanchedalmond;
 }
 
 html, body {
@@ -14,7 +16,7 @@ html, body {
 }
 
 #letter-input {
-    border:1px gray solid;
+    border:1px red solid;
     width:20pt;
     font-size:14pt;
     text-align:center;

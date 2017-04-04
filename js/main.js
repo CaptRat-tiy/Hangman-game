@@ -15,7 +15,9 @@ const hangman = (function() {
     "who","oil","its","now","find","long","down","day","did","get",
     "come","made","may","part"]
 
-  let alphNode = document.querySelector("div#alphabet")
+  let alphNode = document.querySelector("#alphabet")
+  alphNode.textContent = alphabet.join(" ")
+
 
   // can modify tries for later difficulty setting
   var tries = 8;
@@ -24,8 +26,6 @@ const hangman = (function() {
 
   var answerWord = chooseWord(commonWords)
   console.log(answerWord)
-
-  // alphNode.textContent = alphabet.join(" ")
 
   //when user makes guess:
   function inputGuess(){
@@ -52,8 +52,12 @@ const hangman = (function() {
   }
 
 function updateUnderscores(string) {
-  // console.log("cheese");
   document.getElementById("game-board").innerHTML = string;
+  tries -=1;
+  if (tries === 0) {
+    console.log("Sorry.  You lose!")
+    gameOver();
+  }
 }
   // compare chooseword vs answer word
 function updateGuess() {
@@ -64,6 +68,31 @@ function updateGuess() {
   for (let i = 0; i < ansArr.length; i++) {
     if (ansArr[i] === chooseLetter) {
       progArr[i] = chooseLetter;
+    } else {
+      // add letter to "wrong choices"
+    }
+  }
+  console.log("progArr: ", progArr)
+  guessProgress = progArr.join(' ')
+  console.log(guessProgress);
+  // document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
+  updateUnderscores(guessProgress);
+  updateAlphabet(progArr)
+}
+
+
+
+
+function updateAlphabet() {
+  let alphabetPotential = alphNode.split('');
+  let guessedAlphabet = progArr.split(' ');
+  console.log("alphabetPotential: ", ansArr);
+  console.log("progArr: ", progArr);
+  for (let i = 0; i < ansArr.length; i++) {
+    if (ansArr[i] === chooseLetter) {
+      progArr[i] = chooseLetter;
+    } else {
+      // add letter to "wrong choices"
     }
   }
   console.log(progArr);
@@ -73,6 +102,15 @@ function updateGuess() {
   updateUnderscores(guessProgress)
 }
 
-  document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
 
+
+
+
+
+
+
+
+
+
+  document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
 })();
