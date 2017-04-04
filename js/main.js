@@ -1,6 +1,7 @@
 //tries don't count down
 // alphabet wrong guesses isn't working
 // css needs help
+// no win/lose message
 
 
 const hangman = (function() {
