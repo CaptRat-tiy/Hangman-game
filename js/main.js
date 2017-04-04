@@ -1,5 +1,5 @@
 //tries don't count down
-// alphabet wrong guesses isn't working
+// alphabet wrong guesses isn't working; repeat letter isn't erred
 // css needs help
 // no win/lose message
 
