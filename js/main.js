@@ -77,30 +77,29 @@ function updateGuess() {
   console.log(guessProgress);
   // document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
   updateUnderscores(guessProgress);
-  updateAlphabet(progArr)
+  // updateAlphabet(progArr)
 }
 
 
 
 
-function updateAlphabet() {
-  let alphabetPotential = alphNode.split('');
-  let guessedAlphabet = progArr.split(' ');
-  console.log("alphabetPotential: ", ansArr);
-  console.log("progArr: ", progArr);
-  for (let i = 0; i < ansArr.length; i++) {
-    if (ansArr[i] === chooseLetter) {
-      progArr[i] = chooseLetter;
-    } else {
-      // add letter to "wrong choices"
-    }
-  }
-  console.log(progArr);
-  guessProgress = progArr.join(' ')
-  console.log(guessProgress);
-  // document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
-  updateUnderscores(guessProgress)
-}
+// function updateAlphabet(progArr) {
+//   let alphabetPotential = alphabet.toString();
+//   console.log("alphabet: ", alphabet);
+//   let guessedAlphabet = progArr.split(' ');
+//   console.log("alphabet: ", alphabetPotential);
+//   console.log("progArr: ", progArr);
+//   for (let i = 0; i < alphabet.length; i++) {
+//     if (alphabet[i] === chooseLetter) {
+// add strikethrough to individual "wrong choice letter"
+//  function myFunction() {
+//      document.getElementById("myP").style.textDecoration = "line-through";
+// }
+//       alphabet[i] = chooseLetter;
+//
+// //   document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
+// //   updateUnderscores(guessProgress)
+// }
 
 
 
