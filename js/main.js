@@ -2,23 +2,7 @@
 
 const hangman = (function() {
 
-  let alphNode = document.querySelector("div#alphabet")
-
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-
-  var chooseLetter = '';
-
-  var guessProgress = '';
-
-function inputGuess(){
-  chooseLetter = document.getElementById("letter-input").value;
-  console.log(chooseLetter);
-}
-
-document.getElementById("pick-letter").onclick = inputGuess;
-
-// can modify tries for later difficulty setting
-  var tries = 8;
 
   var commonWords = [
     "them","cough","hand","actor","torque","finish","fish","youth","that","bait","help",
@@ -33,10 +17,25 @@ document.getElementById("pick-letter").onclick = inputGuess;
     "who","oil","its","now","find","long","down","day","did","get",
     "come","made","may","part"]
 
-    var word = chooseWord(commonWords)
-    console.log(word)
+  let alphNode = document.querySelector("div#alphabet")
+
+  // can modify tries for later difficulty setting
+  var tries = 8;
+  var chooseLetter = '';
+  var guessProgress = '';
+
+  var answerWord = chooseWord(commonWords)
+  console.log(answerWord)
 
   alphNode.textContent = alphabet.join(" ")
+
+  //when user makes guess:
+  function inputGuess(){
+    chooseLetter = document.getElementById("letter-input").value;
+    updateGuess();
+  }
+
+  document.getElementById("pick-letter").onclick = inputGuess;
 
   //display total tries on page load:
   document.getElementById("tries").innerHTML = "Tries: " +tries;
@@ -47,17 +46,28 @@ document.getElementById("pick-letter").onclick = inputGuess;
    }
 
 // create a string of underscores (replacing word length) that shows progress
-  function drawUnderscores (word) {
+  function drawUnderscores(word) {
     for (var i = 0; i < word.length; i++) {
       guessProgress += "_ ";
   	}
   	return guessProgress;
   }
 
+  // compare chooseword vs answer word
+function updateGuess() {
+  let ansArr = answerWord.split('');
+  let progArr = guessProgress.split(' ');
+  // console.log("ansArr: ", ansArr);
+  // console.log("progArr: ", progArr);
+  for (let i = 0; i < ansArr.length; i++) {
+    if (ansArr[i] === chooseLetter) {
+      console.log(true);
+    } else {console.log(false);}
+  }
+}
 
 
-
-  document.getElementById("game-board").innerHTML = drawUnderscores(word);
+  document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
 
   // return {
   //   pickLetter: pickLetter,
