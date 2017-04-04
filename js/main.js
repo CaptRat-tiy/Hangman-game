@@ -1,3 +1,8 @@
+//tries don't count down
+// alphabet wrong guesses isn't working
+// css needs help
+
+
 const hangman = (function() {
 
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -55,8 +60,8 @@ function updateUnderscores(string) {
   document.getElementById("game-board").innerHTML = string;
   tries -=1;
   if (tries === 0) {
-    console.log("Sorry.  You lose!")
-    gameOver();
+    // return "Sorry.  You lose!"
+    // gameOver();
   }
 }
   // compare chooseword vs answer word
@@ -80,9 +85,6 @@ function updateGuess() {
   // updateAlphabet(progArr)
 }
 
-
-
-
 // function updateAlphabet(progArr) {
 //   let alphabetPotential = alphabet.toString();
 //   console.log("alphabet: ", alphabet);
@@ -100,14 +102,6 @@ function updateGuess() {
 // //   document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
 // //   updateUnderscores(guessProgress)
 // }
-
-
-
-
-
-
-
-
 
 
 
