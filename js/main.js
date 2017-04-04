@@ -73,7 +73,7 @@ const hangman = (function() {
   document.getElementById("game-board").innerHTML = underscores;
 
   return {
-    pickLetter: pickletter,
+    pickLetter: pickLetter,
     chooseWord: chooseWord,
     drawUnderscores: drawUnderscores,
     alterAt: alterAt,
@@ -81,4 +81,4 @@ const hangman = (function() {
   }
 })();
 
-module.exports = hangman;
+// module.exports = hangman;
