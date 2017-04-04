@@ -6,7 +6,17 @@ const hangman = (function() {
 
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
 
-  var chooseLetter = document.getElementById("letter-input");
+  var chooseLetter = '';
+
+  var guessProgress = '';
+
+function inputGuess(){
+  chooseLetter = document.getElementById("letter-input").value;
+  console.log(chooseLetter);
+}
+
+document.getElementById("pick-letter").onclick = inputGuess;
+
 // can modify tries for later difficulty setting
   var tries = 8;
 
@@ -26,9 +36,6 @@ const hangman = (function() {
     var word = chooseWord(commonWords)
     console.log(word)
 
-
-
-
   alphNode.textContent = alphabet.join(" ")
 
   //display total tries on page load:
@@ -41,12 +48,13 @@ const hangman = (function() {
 
 // create a string of underscores (replacing word length) that shows progress
   function drawUnderscores (word) {
-    var result = "";
     for (var i = 0; i < word.length; i++) {
-      result += "_ ";
+      guessProgress += "_ ";
   	}
-  	return result;
+  	return guessProgress;
   }
+
+
 
 
   document.getElementById("game-board").innerHTML = drawUnderscores(word);
