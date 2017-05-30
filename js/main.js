@@ -1,5 +1,3 @@
-
-
 const hangman = (function() {
 
   var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
@@ -25,6 +23,7 @@ const hangman = (function() {
   var tries = 8;
   var chooseLetter = '';
   var guessProgress = '';
+  let progArr = [];
 
 
   var answerWord = chooseWord(commonWords)
@@ -37,6 +36,7 @@ const hangman = (function() {
     updateGuess();
     inputtedLetter();
     showAttempts(setTries());
+    // progArrayDone();
   }
 
   document.getElementById("pick-letter").onclick = inputGuess;
@@ -66,11 +66,11 @@ function inputtedLetter(){
     }
   }
 
-function showAttempts(setTries) {
-  let newAttempt = setTries;
-  tries = newAttempt;
-  return newAttempt;
-}
+  function showAttempts(setTries) {
+    let newAttempt = setTries;
+    tries = newAttempt;
+    return newAttempt;
+  }
 
 // create Answer word "chooseword"
   function chooseWord(array) {
@@ -81,7 +81,7 @@ function showAttempts(setTries) {
 // create a string of underscores (replacing word length) that shows progress
   function drawUnderscores(word) {
     for (var i = 0; i < word.length; i++) {
-      guessProgress += "_ ";
+      guessProgress += " _";
   	}
   	return guessProgress;
   }
@@ -92,7 +92,7 @@ function updateUnderscores(string) {
   // compare chooseword vs answer word
 function updateGuess() {
   let ansArr = answerWord.split('');
-  let progArr = guessProgress.split(' ');
+  progArr = guessProgress.split(' ');
   // console.log("ansArr: ", ansArr);
   // console.log("progArr: ", progArr);
   for (let i = 0; i < ansArr.length; i++) {
@@ -100,19 +100,18 @@ function updateGuess() {
       progArr[i] = chooseLetter;
     } else {   }
   }
+console.log(progArr);
+  function progArrayDone() {
+    if (progArr == guessProgress)
+    {console.log("You Won!")}
+  }
 
-
-
-console.log(chooseLetter);
-console.log(guessProgress);
+console.log("chooseLetter: ", chooseLetter);
+console.log("guessProgress: ", guessProgress);
   console.log("progArr: ", progArr)
   guessProgress = progArr.join(' ')
   console.log(guessProgress);
-  // document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
   updateUnderscores(guessProgress);
-  // updateAlphabet(progArr)
 }
-
   document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
-
 })();
