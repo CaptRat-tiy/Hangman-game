@@ -38,3 +38,7 @@ input {
     display: inline-block;
     font-size: 14px;
 }
+
+#tries {
+  color: red;
+}

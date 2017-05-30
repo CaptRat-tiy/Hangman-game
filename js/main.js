@@ -1,7 +1,3 @@
-//tries don't count down
-// alphabet wrong guesses isn't working; repeat letter isn't erred
-// css needs help
-// no win/lose message
 
 
 const hangman = (function() {
@@ -30,19 +26,52 @@ const hangman = (function() {
   var chooseLetter = '';
   var guessProgress = '';
 
+
   var answerWord = chooseWord(commonWords)
   console.log(answerWord)
 
   //when user makes guess:
   function inputGuess(){
     chooseLetter = document.getElementById("letter-input").value;
+    setTries();
     updateGuess();
+    inputtedLetter();
+    showAttempts(setTries());
   }
 
   document.getElementById("pick-letter").onclick = inputGuess;
 
   //display total tries on page load:
-  document.getElementById("tries").innerHTML = "Tries: " +tries;
+  document.getElementById("tries").innerHTML = "You have " + tries + " guesses left!";
+
+function inputtedLetter(){
+  if (answerWord.includes(chooseLetter)){
+    document.getElementById("tries").innerHTML = "You have " + tries + " guesses left!";
+    return;
+  }
+  else {
+    document.getElementById("tries").innerHTML = "You have " + (tries - 1) + " guesses left!";
+  }
+}
+
+  function setTries() {
+  if (inputtedLetter() === true){
+    var attempt = tries;
+    return attempt;
+  }
+  else {
+    var attempt = tries;
+    attempt--;
+    return attempt
+    }
+  }
+
+function showAttempts(setTries) {
+  let newAttempt = setTries;
+  tries = newAttempt;
+  return newAttempt;
+}
+
 // create Answer word "chooseword"
   function chooseWord(array) {
     let thing = array[(Math.floor(Math.random() * array.length))];
@@ -59,25 +88,23 @@ const hangman = (function() {
 
 function updateUnderscores(string) {
   document.getElementById("game-board").innerHTML = string;
-  tries -=1;
-  if (tries === 0) {
-    // return "Sorry.  You lose!"
-    // gameOver();
-  }
 }
   // compare chooseword vs answer word
 function updateGuess() {
   let ansArr = answerWord.split('');
   let progArr = guessProgress.split(' ');
-  console.log("ansArr: ", ansArr);
-  console.log("progArr: ", progArr);
+  // console.log("ansArr: ", ansArr);
+  // console.log("progArr: ", progArr);
   for (let i = 0; i < ansArr.length; i++) {
     if (ansArr[i] === chooseLetter) {
       progArr[i] = chooseLetter;
-    } else {
-      // add letter to "wrong choices"
-    }
+    } else {   }
   }
+
+
+
+console.log(chooseLetter);
+console.log(guessProgress);
   console.log("progArr: ", progArr)
   guessProgress = progArr.join(' ')
   console.log(guessProgress);
@@ -85,24 +112,6 @@ function updateGuess() {
   updateUnderscores(guessProgress);
   // updateAlphabet(progArr)
 }
-
-// function updateAlphabet(progArr) {
-//   let alphabetPotential = alphabet.toString();
-//   console.log("alphabet: ", alphabet);
-//   let guessedAlphabet = progArr.split(' ');
-//   console.log("alphabet: ", alphabetPotential);
-//   console.log("progArr: ", progArr);
-//   for (let i = 0; i < alphabet.length; i++) {
-//     if (alphabet[i] === chooseLetter) {
-// add strikethrough to individual "wrong choice letter"
-//  function myFunction() {
-//      document.getElementById("myP").style.textDecoration = "line-through";
-// }
-//       alphabet[i] = chooseLetter;
-//
-// //   document.getElementById("game-board").innerHTML = drawUnderscores(guessProgress);
-// //   updateUnderscores(guessProgress)
-// }
 
   document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
 
