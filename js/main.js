@@ -81,7 +81,7 @@ function inputtedLetter(){
 // create a string of underscores (replacing word length) that shows progress
   function drawUnderscores(word) {
     for (var i = 0; i < word.length; i++) {
-      guessProgress += " _";
+      guessProgress += "_ ";
   	}
   	return guessProgress;
   }
@@ -93,25 +93,23 @@ function updateUnderscores(string) {
 function updateGuess() {
   let ansArr = answerWord.split('');
   progArr = guessProgress.split(' ');
-  // console.log("ansArr: ", ansArr);
-  // console.log("progArr: ", progArr);
   for (let i = 0; i < ansArr.length; i++) {
     if (ansArr[i] === chooseLetter) {
-      progArr[i] = chooseLetter;
-    } else {   }
-  }
-console.log(progArr);
-  function progArrayDone() {
-    if (progArr == guessProgress)
-    {console.log("You Won!")}
+      progArr[i] = chooseLetter
+    }
   }
 
-console.log("chooseLetter: ", chooseLetter);
-console.log("guessProgress: ", guessProgress);
+  console.log("guessProgress: ", guessProgress);
   console.log("progArr: ", progArr)
-  guessProgress = progArr.join(' ')
-  console.log(guessProgress);
+
+  guessProgress = progArr.join('')
+
+  if (guessProgress === answerWord) {
+  alert("You Won!")
+}
+
   updateUnderscores(guessProgress);
 }
+
   document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
 })();

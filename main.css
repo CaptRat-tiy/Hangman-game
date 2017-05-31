@@ -5,13 +5,13 @@ body {
     background-image: url("image/background.jpg");
     background-repeat: no-repeat;
     color: blanchedalmond;
+    margin: 2em;
 }
 
 html, body {
   height:100%;
   position: relative;
   min-height: 100%;
-  margin: 0;
 }
 
 #letter-input {
