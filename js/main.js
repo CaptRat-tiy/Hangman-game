@@ -14,9 +14,9 @@ const hangman = (function() {
     "could","people","max","than","first","water","been","call",
     "who","oil","its","now","find","long","down","day","did","get",
     "come","made","may","part"]
-
-  let alphNode = document.querySelector("#alphabet")
-  alphNode.textContent = alphabet.join(" ")
+  //
+  // let alphNode = document.querySelector("#alphabet")
+  // alphNode.textContent = alphabet.join(" ")
 
 
   // can modify tries for later difficulty setting
@@ -102,13 +102,18 @@ function updateGuess() {
   console.log("guessProgress: ", guessProgress);
   console.log("progArr: ", progArr)
 
-  guessProgress = progArr.join('')
+  guessProgress = progArr.join(' ')
+  progCompiled = progArr.join('')
+  console.log("progCompiled:",progCompiled);
 
-  if (guessProgress === answerWord) {
-  alert("You Won!")
-}
 
-  updateUnderscores(guessProgress);
+  function anyWin (guessProgress) {
+    if (progCompiled === answerWord) {
+      alert("You Won!")
+    }
+  }
+updateUnderscores(guessProgress);
+
 }
 
   document.getElementById("game-board").innerHTML = drawUnderscores(answerWord);
